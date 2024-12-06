@@ -17,7 +17,7 @@ def save_do
 def main():
   do_list = load_do()
   while True:
-    print("\n[할 일 메모]")
+    print("\n[체크리스트]")
     print("1. 할 일 목록 보기")
     print("2. 할 일 추가")
     print("3. 할 일 완료 표시")
