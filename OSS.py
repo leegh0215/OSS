@@ -12,7 +12,9 @@ def load_do():
     return []
 
 #데이터 저장
-def save_do
+def save_do(do_list):
+  with open(TODO_FILE, 'w') as file:
+    json.dump(todo_list, file, indent=4)
 
 def main():
   do_list = load_do()
