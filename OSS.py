@@ -6,15 +6,15 @@ DO_FILE = "do.json"
 #초기 데이터 로드
 def load_do():
   try:
-    with open(TODO_FILE, 'r') as file:
+    with open(DO_FILE, 'r') as file:
       return json.load(file)
   except FileNotFoundError:
     return []
 
 #데이터 저장
 def save_do(do_list):
-  with open(TODO_FILE, 'w') as file:
-    json.dump(todo_list, file, indent=4)
+  with open(DO_FILE, 'w') as file:
+    json.dump(do_list, file, indent=4)
 
 def main():
   do_list = load_do()
@@ -36,7 +36,7 @@ def main():
     elif choice == "4":
       print("아직 미구현")
     elif choice == "5":
-      save_todo(todo_list):
+      save_do(do_list)
       print("프로그램을 종료합니다.")
       break
     else:
