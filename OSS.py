@@ -16,6 +16,12 @@ def save_do(do_list):
   with open(DO_FILE, 'w') as file:
     json.dump(do_list, file, indent=4)
 
+#데이터 추가
+def add_do(do_list):
+    task = input("추가할 할 일을 입력하세요: ")
+    do_list.append({"task": task, "done": False})
+    print(f"'{task}' 추가 완료!")
+
 def main():
   do_list = load_do()
   while True:
@@ -30,7 +36,7 @@ def main():
     if choice == "1":
       print("아직 미구현")
     elif choice == "2":
-      print("아직 미구현")
+      add_do(do_list)
     elif choice == "3":
       print("아직 미구현")
     elif choice == "4":
