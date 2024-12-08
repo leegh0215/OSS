@@ -31,17 +31,18 @@ def print_list(do_list):
             status = "✔ 완료" if item["done"] else "❌ 미완료"
             print(f"{index}. {item['task']} - {status}")
 
-def complete_do(do_list):
+def delete_do(do_list):
     print_list(do_list)
     try:
-        choice = int(input("완료할 할 일 번호를 입력하세요: "))
+        choice = int(input("삭제할 할 일 번호를 입력하세요: "))
         if 1 <= choice <= len(do_list):
-            do_list[choice - 1]["done"] = True
-            print(f"'{do_list[choice - 1]['task']}'가 완료되었습니다!")
+            removed_task = do_list.pop(choice - 1)
+            print(f"'{removed_task['task']}'가 삭제되었습니다!")
         else:
             print("유효하지 않은 번호입니다.")
     except ValueError:
         print("숫자를 입력하세요.")
+
 
 def main():
   do_list = load_do()
@@ -59,12 +60,12 @@ def main():
     elif choice == "2":
       add_do(do_list)
     elif choice == "3":
-      if len(do_list) > 0:
-        complete_do(do_list)
-      else:
-         print('목록을 추가하세요.')
-    elif choice == "4":
       print("아직 미구현")
+    elif choice == "4":
+      if len(do_list) > 0:
+        delete_do(do_list)
+      else:
+        print("할 일을 추가하세요.")
     elif choice == "5":
       save_do(do_list)
       print("프로그램을 종료합니다.")
