@@ -13,14 +13,23 @@ def load_do():
 
 #데이터 저장
 def save_do(do_list):
-  with open(DO_FILE, 'w') as file:
-    json.dump(do_list, file, indent=4)
+  with open(DO_FILE, 'w', encoding='UTF-8') as file:
+    json.dump(do_list, file, indent=4, ensure_ascii=False)
 
 #데이터 추가
 def add_do(do_list):
     task = input("추가할 할 일을 입력하세요: ")
     do_list.append({"task": task, "done": False})
     print(f"'{task}' 추가 완료!")
+
+def print_list(do_list):
+   if not do_list:
+        print("할 일이 없습니다!")
+   else:
+        print("\n[현재 할 일 목록]")
+        for index, item in enumerate(do_list, start=1):
+            status = "✔ 완료" if item["done"] else "❌ 미완료"
+            print(f"{index}. {item['task']} - {status}")
 
 def main():
   do_list = load_do()
@@ -34,7 +43,7 @@ def main():
 
     choice = input("메뉴를 선택하세요 : ")
     if choice == "1":
-      print("아직 미구현")
+      print_list(do_list)
     elif choice == "2":
       add_do(do_list)
     elif choice == "3":
