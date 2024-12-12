@@ -12,11 +12,11 @@
         "done": false
     },
     {
-        "task": "세수하기",
+        "task": "시험 공부 하기",
         "done": false
     },
     {
-        "task": "시험 공부 하기",
-        "done": false
+        "task": "세수하기",
+        "done": true
     }
 ]
